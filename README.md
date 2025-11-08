@@ -19,7 +19,7 @@ Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 
 1. Clonar el repositorio:
    ```
-   git clone https://github.com/pmeqa/playwright-saucelabs.git
+   git clone https://github.com/pmeqa/playwright-swaglabs.git
    cd playwright-saucelabs
 Instalar las dependencias del proyecto:
 
@@ -43,7 +43,7 @@ Generar y visualizar el reporte de resultados
 Estructura del Proyecto
 
 ```
-playwright-saucelabs/
+playwright-swaglabs/
 
 ├── .github/ # Configuración de flujos de trabajo de GitHub
 │ └── workflows/ # Configuración para CI/CD

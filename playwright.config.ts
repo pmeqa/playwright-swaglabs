@@ -30,27 +30,45 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    headless: true,  
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: null,
+        deviceScaleFactor: undefined,  
+        launchOptions: {
+          args: ["--start-maximized"],
+        }
+        ,screenshot: 'only-on-failure'
+        ,trace: 'retain-on-failure'   
+      },
     }
-    /*,
-
+    ,
+    /*
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+      use: {
+        ...devices['Desktop Firefox'],
+        viewport: { width: 1920, height: 1080 },  // Tamaño grande fijo
+        // deviceScaleFactor: undefined,
+        launchOptions: {
+          args: ['--width=1920', '--height=1080']
+        }
+      },
+    }
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
-    /* Test against mobile viewports. */
+    
+        {
+          name: 'webkit',
+          use: { ...devices['Desktop Safari'] },
+        },
+    
+        /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
     //   use: { ...devices['Pixel 5'] },
